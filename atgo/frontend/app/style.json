@@ -1,0 +1,65 @@
+{
+    "raw_interactions": {
+        "edge-types": [
+            {
+                "key": "Co-expression",
+                "value": {
+                    "line-style": "solid",
+                    "line-color": "#7fc97f"
+                }
+            },
+            {
+                "key": "Genetic interactions",
+                "value": {
+                    "line-style": "solid",
+                    "line-color": "#beaed4"
+                }
+            },
+            {
+                "key": "Conditional genetic interactions",
+                "value": {
+                    "line-style": "solid",
+                    "line-color": "#fdc086"
+                }
+            },
+            {
+                "key": "Protein-protein interactions",
+                "value": {
+                    "line-style": "solid",
+                    "line-color": "#FFFFFF"
+                }
+            },
+            {
+                "key": "Domain co-occurrence",
+                "value": {
+                    "line-style": "dashed",
+                    "line-color": "#ffff99",
+                    "opacity": 0.7
+                }
+            },
+            {
+                "key": "Genomic context",
+                "value": {
+                    "line-style": "dashed",
+                    "line-color": "#386cb0",
+                    "opacity": 0.7
+                }
+            },
+            {
+                "key": "Phylogenetic similarity",
+                "value": {
+                    "line-style": "dashed",
+                    "line-color": "#f0027f",
+                    "opacity": 0.7
+                }
+            },
+            {
+                "key": "Predicted from 3D structure",
+                "value": {
+                    "line-style": "dashed",
+                    "line-color": "#bf5b17"
+                }
+            }
+        ]
+    }
+}

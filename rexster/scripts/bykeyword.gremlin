@@ -1,0 +1,20 @@
+def keywordSearch() {
+	def allResults = [];
+  def itrList = [];
+
+	itrList.add(g.idx('Vertex').query('assigned_genes',query).iterator());
+	itrList.add(g.idx('Vertex').query('synonyms',query).iterator());
+	itrList.add(g.idx('Vertex').query('sgd',query).iterator());
+	itrList.add(g.idx('Vertex').query('name',query).iterator());
+	itrList.add(g.idx('Vertex').query('term_name',query).iterator());
+	itrList.add(g.idx('Vertex').query('full_name',query).iterator());
+
+  for(i=0; i<itrList.size(); i++) {
+    def resultItr = itrList[i];
+	  while(resultItr.hasNext()) {
+		  allResults.add(resultItr.next());
+	  }
+  }
+	
+	return allResults;
+}

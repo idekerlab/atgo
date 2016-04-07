@@ -1,0 +1,35 @@
+FROM node:5.6
+
+MAINTAINER Keiichiro Ono <kono@ucsd.edu>
+
+# Step 1: Basic node.js server setup
+RUN apt-get update && apt-get install -y build-essential
+
+RUN apt-get install -y ruby-full rubygems-integration
+RUN gem install compass
+
+# Install compass for grunt
+
+RUN npm install -g forever bower grunt-cli
+
+RUN mkdir /app
+ADD . /app
+
+# Step 2: Build frontend code
+WORKDIR /app/frontend
+
+RUN npm install
+RUN bower --allow-root install
+
+RUN grunt --force
+
+# Copy the frontend code to server
+RUN cp -r ./dist ../public/
+
+# Step 3: Install dependencies for node.js server
+WORKDIR /app
+RUN npm install
+
+EXPOSE 3000
+
+CMD ["node", "app.js"]

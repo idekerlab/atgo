@@ -1,0 +1,88 @@
+def getRawInteractions() {
+	// Chage the query into array
+	def queryGenes = query.split(' ') as Set;
+	def allResults = [];
+
+	def geneItr = g.idx('Vertex').query('name', query).iterator();
+
+	println queryGenes;
+
+	def edgeSet = new HashSet();
+	def nodeSet = new HashSet();
+	
+	while(geneItr.hasNext()) {
+		def geneV = geneItr.next();
+		def edges = geneV.outE().has("type", "raw_interaction");
+		
+		def pit = edges.iterator();
+		while(pit.hasNext()) {
+			def e = pit.next();
+			
+			def out1 = e.bothV;
+			def outItr = out1.iterator();
+			def vers = [];
+
+			while(outItr.hasNext()) {
+				vers.add(outItr.next().name);
+			}
+
+			if(queryGenes.contains(vers[0].toLowerCase()) && queryGenes.contains(vers[1].toLowerCase())) {
+				edgeSet.add(e);
+				def nodeItr = e.bothV.iterator();
+				while(nodeItr.hasNext()) {
+					def node = nodeItr.next();
+					//println node;
+					nodeSet.add(node);
+				}
+
+				//nodeSet.add(e.inV);
+				//nodeSet.add(e.outV);
+			}
+		}
+		//def combinedResult = [nodeSet, edgeSet];
+		//allResults.add(combinedResult);
+	}
+
+	return [nodeSet, edgeSet];
+}
+
+def getRawInteractionsForGenes() {
+	// Chage the query into array
+	def queryGenes = query.split(' ') as Set;
+	def allResults = [];
+
+	def geneItr = g.idx('Vertex').query('name', query).iterator();
+
+	println queryGenes;
+
+	def edgeSet = new HashSet();
+	def nodeSet = new HashSet();
+	
+	while(geneItr.hasNext()) {
+		def geneV = geneItr.next();
+		def edges = geneV.outE().has("type", "raw_interaction");
+		
+		def pit = edges.iterator();
+		while(pit.hasNext()) {
+			def e = pit.next();
+			
+			def out1 = e.bothV;
+			def outItr = out1.iterator();
+			def vers = [];
+
+			while(outItr.hasNext()) {
+				vers.add(outItr.next().name);
+			}
+
+			edgeSet.add(e);
+			def nodeItr = e.bothV.iterator();
+			while(nodeItr.hasNext()) {
+				def node = nodeItr.next();
+				nodeSet.add(node);
+			}
+		}
+	}
+
+	return [nodeSet, edgeSet];
+
+}

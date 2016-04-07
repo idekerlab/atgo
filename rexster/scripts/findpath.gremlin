@@ -1,0 +1,16 @@
+def findPath() {
+	def allResults = [];
+	def itrList = [];
+	
+	itrList.add(g.idx('Vertex').query('assigned_genes',query).iterator());
+	itrList.add(g.idx('Vertex').query('name',query).iterator());
+	
+	println "Searching by name";
+
+	for(resultItr in itrList) {
+		while(resultItr.hasNext()) {
+			allResults.add(resultItr.next());
+		}
+	}
+	return allResults;
+}

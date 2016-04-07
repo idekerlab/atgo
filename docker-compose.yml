@@ -1,0 +1,10 @@
+rexster:
+  build: rexster
+  ports:
+    - "8182:8182"
+atgo:
+  build: atgo
+  links:
+    - rexster
+  ports:
+    - "3000:3000"

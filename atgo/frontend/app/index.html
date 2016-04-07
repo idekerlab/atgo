@@ -1,0 +1,152 @@
+<!doctype html>
+<head>
+    <title>AtgO Browser</title>
+    <meta charset="utf-8">
+
+    <!-- Download Web Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700' rel='stylesheet'>
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,400,700' rel='stylesheet'>
+
+    <link rel="stylesheet" href="css/font-style.css"/>
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="stylesheet" href="styles/main.css">
+
+    <!-- build:js scripts/vendor/modernizr.js -->
+    <script src="bower_components/modernizr/modernizr.js"></script>
+    <!-- endbuild -->
+
+    <!-- build:js scripts/vendor/jquery.js -->
+    <script src="bower_components/jquery/jquery.min.js"></script>
+    <!-- endbuild -->
+
+    <!-- build:js scripts/vendor/arbor.js -->
+    <script src="bower_components/cytoscape/lib/arbor.js"></script>
+    <!-- endbuild -->
+</head>
+
+<body>
+
+<!-- Main Network View -->
+<div class="loading"></div>
+<div class="overview" id="sigma-canvas"></div>
+
+<div id="mainpanel">
+    <div id="network-title"></div>
+
+    <div class="row-fluid">
+        <input id="query" type="text" class="flat span8" placeholder="Enter search keywords...">
+
+        <div id="search-button" class="span1 font-button" data-icon="s" title="Start Search"></div>
+        <div id="clear-button" class="span1 font-button" data-icon="r" title="Reset search result"></div>
+        <div id="help-button" class="span1 font-button" data-icon="?" title="Open help page"></div>
+    </div>
+
+    <!--<div class="row-fluid">-->
+        <!--<div class="span1">By:</div>-->
+        <!--<div class="span3">-->
+            <!--<label class="radio">-->
+                <!--<input type="radio" name="optionsRadios" id="byKeyword" value="option1" checked>-->
+                <!--Keyword-->
+            <!--</label>-->
+        <!--</div>-->
+
+        <!--<div class="span3">-->
+            <!--<label class="radio">-->
+                <!--<input type="radio" name="optionsRadios" id="byTerm" value="option2">-->
+                <!--Term ID-->
+            <!--</label>-->
+        <!--</div>-->
+    <!--</div>-->
+    <div class="row-fluid">
+        <div class="results">
+            <table id="result-table" class="table res-table"></table>
+        </div>
+    </div>
+
+    <!--<div id="enrich">-->
+        <!--<h4>Term Enrichment</h4>-->
+
+        <!--<div class="row-fluid">-->
+            <!--<textarea id="gene-list" class="form-control span12" rows="3"-->
+                      <!--placeholder="Enter list of genes of your interest..."></textarea>-->
+        <!--</div>-->
+        <!--<div class="row-fluid">-->
+            <!--<input id="pval" type="text" placeholder="p-value cutoff" title="P-value cutoff" class="flat span4">-->
+            <!--<input id="num-genes" type="text" placeholder="Min. # genes"-->
+                   <!--title="Minimum number of genes assigned to a term" class="flat span4">-->
+            <!--<button id="enrich-reset" class="btn btn flat mini-btn-mod" type="button">Reset</button>-->
+            <!--<button id="enrich-submit" class="btn btn flat mini-btn-mod" type="button">Submit</button>-->
+        <!--</div>-->
+        <!--<div class="results">-->
+            <!--<table id="enrich-table" class="table res-table"></table>-->
+        <!--</div>-->
+    <!--</div>-->
+
+</div>
+
+<!-- Navigation UI -->
+<div id="commands">
+    <div class="z" rel="in" title="Zoom-in" data-icon="+"></div>
+    <div class="z" rel="out" title="Zoom-out" data-icon="-"></div>
+    <div class="z" rel="center" title="Fit to screen size" data-icon="f"></div>
+</div>
+
+<!--Details for clicked node -->
+<div id="summary-panel">
+    <div id="subnetwork-view">
+        <div id="warning"></div>
+        <div id="cyjs">
+        </div>
+    </div>
+
+    <div class="row-fluid">
+
+        <div class="span1">
+            <div id="close-button" class="font-button" data-icon="c"></div>
+        </div>
+        <div class="span11">
+            <div class="headertext"></div>
+        </div>
+    </div>
+
+    <div class="tabbable">
+        <ul id="result-tab" class="nav nav-tabs">
+            <li class="active"><a href="#details" data-toggle="tab">Summary</a></li>
+            <li><a href="#genes" data-toggle="tab">Genes</a></li>
+            <li id="interactions-tab"><a href="#interactions" data-toggle="tab">Interactions</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active" id="details"></div>
+            <div class="tab-pane" id="genes"></div>
+            <div class="tab-pane" id="interactions"></div>
+        </div>
+    </div>
+    <div class="float-ui font-button">
+        <p class="font-button" data-icon="U"></p>
+
+        <p class="font-button" data-icon="D"></p>
+    </div>
+</div>
+
+
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+<script>
+    var _gaq = [
+        ['_setAccount', 'UA-43073795-1'],
+        ['_trackPageview']
+    ];
+    (function (d, t) {
+        var g = d.createElement(t), s = d.getElementsByTagName(t)[0];
+        g.src = ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g, s)
+    }(document, 'script'));
+</script>
+
+<!-- build:js scripts/main.js -->
+<script data-main="scripts/main" src="bower_components/requirejs/require.js"></script>
+<!-- endbuild -->
+</body>
+</html>
