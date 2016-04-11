@@ -16,10 +16,9 @@ define([
     'EventHelper',
     'collections/SearchResults',
     'views/SigmaRenderer',
-    'views/SearchResultView',
-    'views/SearchResultKeywordView'
+    'views/SearchResultView'
 
-], function (jquery, _, Backbone, EventHelper, SearchResults, SigmaRenderer, SearchResultView, SearchResultKeywordView) {
+], function (jquery, _, Backbone, EventHelper, SearchResults, SigmaRenderer, SearchResultView) {
 
     'use strict';
 

@@ -85,6 +85,10 @@ GraphUtil.prototype = {
 
             var source = edge._outV;
             var target = edge._inV;
+            var score = edge.score;
+            if(score !== undefined) {
+                score = parseFloat(score).toFixed(3);
+            }
 
             var newEdge = {
                 data: {
@@ -95,7 +99,7 @@ GraphUtil.prototype = {
                     targetName: id2name[target.toString()],
                     interaction: interactionType,
                     publication: pub,
-                    score: edge.score
+                    score: score
                 }
             };
 

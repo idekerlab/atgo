@@ -25,6 +25,12 @@ define([
     var QUICK_GO_API = 'http://www.ebi.ac.uk/QuickGO/GTerm?id=';
     var SGD_API = 'http://www.yeastgenome.org/locus/';
     var PUBMED_LINK = 'http://www.ncbi.nlm.nih.gov/pubmed/?term=';
+    var SMD_LINK = 'http://smd.princeton.edu/';
+    var GEO_LINK = 'http://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=';
+
+    var REGEX_PUBMED = /^\d/;
+    var REGEX_SMD = /Stanford Microarray Database/i;
+    var REGEX_GEO = /^GSE/;
 
     var EMPTY_RECORD = 'N/A';
 
@@ -128,20 +134,21 @@ define([
 
         writeInteractions: function(sortedEdges) {
             var summary = '<table class="table table-striped">';
-            summary += '<thead><tr><th>Score</th><th>Interacting Pair</th>' +
+            summary += '<thead><tr><th>Interaction Strength</th><th>Interacting Pair</th>' +
                 '<th>Interaction Type</th><th>Source Publication</th></tr></thead>';
             summary += '<tbody>';
 
+            var self = this;
             _.each(sortedEdges.reverse(), function (edge) {
                 var sourceName = edge.sourceName;
                 var targetName = edge.targetName;
                 var interactingPair = sourceName + ' - ' + targetName;
                 var pubmedId = edge.publication;
-                var pubmedLink = '<a href=' + PUBMED_LINK + pubmedId + ' target="_blank">' + pubmedId + '</a>';
+                var pubmedLink = self.replaceNonePubmedId(pubmedId);
                 var score = edge.score;
                 var itr = edge.interaction;
 
-                summary += '<tr><td>' + score.toFixed(3) + '</td><td>'
+                summary += '<tr><td>' + score + '</td><td>'
                     + interactingPair + '</td><td>' + itr + '</td><td>'
                     + pubmedLink + '</td></tr>';
             });
@@ -149,29 +156,28 @@ define([
             return summary;
         },
 
-        /*
-         * Render term details for GO
-         */
-        goRenderer: function (id) {
-            var label = this.model.get('term name');
-            var description = this.model.get('def');
-            var synonym = this.model.get('synonym');
-            var comment = this.model.get('comment');
+        replaceNonePubmedId: function (id) {
+            if(id === undefined) {
+                return '-';
+            }
 
-            this.renderGenes();
+            if(REGEX_PUBMED.test(id)) {
+                return '<a href=' + PUBMED_LINK + id + ' target="_blank">' + id + '</a>';
+            }
 
-            this.$('#subnetwork-view').hide();
-            this.$('.headertext').empty().append(label);
+            // Special cases
+            if(REGEX_SMD.test(id)) {
+                // This is standford microarray DB
+                return '<a href=' + SMD_LINK + ' target="_blank">' + id + '</a>';
+            }
 
-            var summary = '<h4><a href="' + QUICK_GO_API + id + '" target=_blank >' + id + '</a></h4>';
-            summary += '<table class=\'table table-striped\'><tr><td>Description</td><td>' + description + '</td></tr>';
-            summary += '<tr><td>Synonym</td><td>' + synonym + '</td></tr>';
-            summary += '<tr><td>Comment</td><td>' + comment + '</td></tr>';
-            summary += '</table>';
+            if(REGEX_GEO.test(id)) {
+                return '<a href=' + GEO_LINK + ' target="_blank">' + id + '</a>';
+            }
 
-            this.$(ID_NODE_DETAILS).append(summary);
-//            this.$(ID_NODE_DETAILS).append('<div id='term-view'></div>');
+            return id;
         },
+
 
         renderGenes: function (nodes) {
 
@@ -266,11 +272,19 @@ define([
             this.$(ID_NODE_DETAILS).append('<div id="term-summary"></div>');
 
             // Render Summary Table
+            var score = this.model.get('similarity_score');
+            if(score === undefined ) {
+                score = '-';
+            } else {
+                score = score.toFixed(3);
+            }
+
+
             var summary = '<h3>Term ID: ' + id + '</h3>';
             summary += '<table class="table">';
-            summary += '<tr><th>Term Size</th><th>Score</th></tr>';
+            summary += '<tr><th>Term Size</th><th>Term Similarity Score</th></tr>';
             summary += '<tr><td>' + this.model.get('term_size')
-                + '</td><td>' + this.model.get('similarity_score') + '</td></tr></table>';
+                + '</td><td>' + score + '</td></tr></table>';
 
             this.$('#term-summary').append(summary);
         },
@@ -279,7 +293,7 @@ define([
             var edgeStyle = style['raw_interactions']['edge-types'];
 
             var legendTable = '<h3>Legend</h3>';
-            legendTable += '<h4>Score:</h4>';
+            legendTable += '<h4>Interaction Strength:</h4>';
             legendTable += '<table class="table">';
             legendTable += '<tr><th>Low</th><th>High</th></tr>';
             legendTable += '<tr><td>' + this.getLine('solid', '#888888', 2)
