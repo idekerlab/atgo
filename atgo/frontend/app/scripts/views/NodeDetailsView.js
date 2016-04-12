@@ -146,6 +146,11 @@ define([
                 var pubmedId = edge.publication;
                 var pubmedLink = self.replaceNonePubmedId(pubmedId);
                 var score = edge.score;
+                if(score === undefined) {
+                    score = '-';
+                } else {
+                    score = score.toFixed(3);
+                }
                 var itr = edge.interaction;
 
                 summary += '<tr><td>' + score + '</td><td>'
@@ -172,7 +177,7 @@ define([
             }
 
             if(REGEX_GEO.test(id)) {
-                return '<a href=' + GEO_LINK + ' target="_blank">' + id + '</a>';
+                return '<a href=' + GEO_LINK + id + ' target="_blank">' + id + '</a>';
             }
 
             return id;

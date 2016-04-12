@@ -23,6 +23,7 @@ define([
     'use strict';
 
     var ID_SEARCH_RESULTS = '#mainpanel';
+    var REGEX_ATGO_PREFIX = /atgo:/i;
 
     return Backbone.View.extend({
 
@@ -198,9 +199,9 @@ define([
             // Remove all results.
             this.collection.reset();
             var lowerCaseQuery = query.toLowerCase();
+            lowerCaseQuery = lowerCaseQuery.replace(REGEX_ATGO_PREFIX, '');
 
             // if (searchByTerm) {
-            console.log("======== Search by term!");
             var searchUrl = '/search/term/' + lowerCaseQuery;
             var searchType = 'term';
             console.log("======== Search Q: " + lowerCaseQuery);
@@ -211,7 +212,11 @@ define([
                     EventHelper.trigger(EventHelper.NODES_SELECTED, self.collection.models);
                 }
                 var qList = lowerCaseQuery.split(/ +/g);
-                self.render(qList, searchType);
+                var filteredList = _.filter(qList, function(q){ return q !== ''; });
+                console.log("======== Q LIST");
+                console.log(filteredList);
+
+                self.render(filteredList, searchType);
             });
         },
 

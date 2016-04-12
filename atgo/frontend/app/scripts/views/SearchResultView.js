@@ -75,8 +75,6 @@ define([
                 var regex = new RegExp(qVal, 'gi');
                 var found = highlighted.match(regex);
                 var targets = _.unique(found);
-                console.log("MATCH: ");
-                console.log(targets);
                 _.each(targets, function(target) {
                     var regex2 = new RegExp(target, 'gi');
                     highlighted = highlighted.replace(regex2, '<strong>' + target + '</strong>');

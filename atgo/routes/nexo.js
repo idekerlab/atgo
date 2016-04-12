@@ -86,9 +86,6 @@ GraphUtil.prototype = {
             var source = edge._outV;
             var target = edge._inV;
             var score = edge.score;
-            if(score !== undefined) {
-                score = parseFloat(score).toFixed(3);
-            }
 
             var newEdge = {
                 data: {
@@ -108,29 +105,29 @@ GraphUtil.prototype = {
         return graph;
     },
 
-    graphGenerator: function (graphJson) {
-
-        // Cytoscape.js style graph object.
-        var graph = {
-            elements: {
-                nodes: [],
-                edges: []
-            }
-        };
-
-        var nodeIdArray = [];
-        var edgeIdArray = [];
-
-        for (var key in graphJson) {
-            var path = graphJson[key];
-            this.parsePathEntry(nodeIdArray, edgeIdArray, graph, path);
-        }
-
-        nodeIdArray = null;
-        edgeIdArray = null;
-
-        return graph;
-    },
+    // graphGenerator: function (graphJson) {
+    //
+    //     // Cytoscape.js style graph object.
+    //     var graph = {
+    //         elements: {
+    //             nodes: [],
+    //             edges: []
+    //         }
+    //     };
+    //
+    //     var nodeIdArray = [];
+    //     var edgeIdArray = [];
+    //
+    //     for (var key in graphJson) {
+    //         var path = graphJson[key];
+    //         this.parsePathEntry(nodeIdArray, edgeIdArray, graph, path);
+    //     }
+    //
+    //     nodeIdArray = null;
+    //     edgeIdArray = null;
+    //
+    //     return graph;
+    // },
 
     edgeListGenerator: function (graphJson) {
 
@@ -527,6 +524,8 @@ exports.searchByTerm = function (req, res) {
 
     "use strict";
 
+    var REGEX_ATGO_ID = /^\d+?/;
+
     var rawQuery = req.params.query;
     console.log('Query = ' + rawQuery);
 
@@ -540,10 +539,16 @@ exports.searchByTerm = function (req, res) {
     var query = "";
 
     for (var i = 0; i < geneIds.length; i++) {
+        var q = geneIds[i];
+
+        if(!REGEX_ATGO_ID.test(q)) {
+            q = "*" + q + "*";
+        }
+
         if (i === geneIds.length - 1) {
-            query += "*" + geneIds[i] + "*";
+            query += q;
         } else {
-            query += "*" + geneIds[i] + "* AND ";
+            query += q + " AND ";
         }
     }
 

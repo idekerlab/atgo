@@ -170,8 +170,6 @@ define([
         setNodeSelectedListener: function (numInteractions) {
             var cy = this.model.get('cy');
 
-            console.log('######## Num nodes: ' + numInteractions);
-
             cy.$('node').on('click', function (evt) {
                 var selectedNodeName = evt.cyTarget.data('name');
 
@@ -183,8 +181,8 @@ define([
 
             cy.layout({
                 name: 'cose',
-                idealEdgeLength: 120,
-                nodeRepulsion: 4000000
+                idealEdgeLength: 130,
+                nodeRepulsion: 5000000
             });
         },
 
@@ -216,14 +214,14 @@ define([
                     .selector('node')
                     .css({
                         'font-family': 'Roboto',
-                        'font-size': '12px',
+                        'font-size': '14px',
                         'font-weight': 300,
                         'content': 'data(name)',
                         'text-halign': 'right',
                         'text-valign': 'bottom',
                         'color': 'rgb(235,235,235)',
-                        'width': 10,
-                        'height': 10,
+                        'width': 15,
+                        'height': 15,
                         'border-width': 0,
                         'background-color': '#FFFFFF',
                         'shape': 'ellipse'
@@ -250,7 +248,7 @@ define([
                     })
                     .selector('edge')
                     .css({
-                        'width': 'mapData(score, 1, 4.5, 0.01, 5.0)',
+                        'width': 'mapData(score, 1, 4.5, 0.8, 5.0)',
                         'color': '#999999',
                         'line-color': '#666666',
                         'line-style': 'solid',
@@ -289,20 +287,17 @@ define([
                     .selector('edge[interaction = "Domain co-occurrence"]')
                     .css({
                         'line-style': 'dashed',
-                        'line-color': '#ffff99',
-                        'opacity': 0.7
+                        'line-color': '#ffff99'
                     })
                     .selector('edge[interaction = "Genomic context"]')
                     .css({
                         'line-style': 'dashed',
-                        'line-color': '#386cb0',
-                        'opacity': 0.7
+                        'line-color': '#386cb0'
                     })
                     .selector('edge[interaction = "Phylogenetic similarity"]')
                     .css({
                         'line-style': 'dashed',
-                        'line-color': '#f0027f',
-                        'opacity': 0.7
+                        'line-color': '#f0027f'
                     })
                     .selector('edge[interaction = "Predicted from 3D structure"]')
                     .css({
