@@ -730,6 +730,7 @@ exports.getPath = function (req, res) {
 
     console.log("Name Space = " + ns);
     console.log("ID = " + id);
+    id = id.toLowerCase();
 
     var self = this;
     async.parallel([
@@ -769,8 +770,9 @@ exports.getPath = function (req, res) {
 
         // Get all TERMS connected FROM this term node
         var url = BASE_URL + "tp/gremlin?script=g.idx('Vertex')[[name: '" + id + "']]" +
-            ".outE.filter{it.label == 'child_of'}.inV&rexster.returnKeys=[name]";
+            ".outE.inV&rexster.returnKeys=[name]";
 
+        console.log("Neighbour:");
         console.log(url);
 
         request.get(url, function (err, rest_res, body) {
@@ -800,7 +802,7 @@ exports.getPath = function (req, res) {
             ".inV.loop('x'){it.loops < 15}" +
             "{it.object.name=='" + rootNode + "'}.path&rexster.returnKeys=[name]";
 
-        console.log("**************** path finding **************");
+        console.log("**************** path finding2 **************");
         console.log(nexoUrl);
 
         request.get(nexoUrl, function (err, rest_res, body) {
@@ -818,31 +820,31 @@ exports.getPath = function (req, res) {
 };
 
 
-exports.getAllParents = function (req, res) {
-    "use strict";
-
-    var id = req.params.id;
-
-    var getGraphUrl = BASE_URL + "tp/gremlin?script=";
-
-    getGraphUrl = getGraphUrl + "g.V.has('name', '" + id + "')" +
-        ".as('x').outE.filter{it.label != 'raw_interaction'}.filter{it.label != 'additional_gene_association'}" +
-        ".inV&rexster.returnKeys=[name]";
-
-    console.log('URL = ' + getGraphUrl);
-
-    request.get(getGraphUrl, function (err, rest_res, body) {
-        if (!err) {
-            var results = JSON.parse(body);
-            var resultArray = results.results;
-            if (resultArray !== undefined && resultArray.length !== 0) {
-                res.json(resultArray);
-            } else {
-                res.json(EMPTY_ARRAY);
-            }
-        }
-    });
-};
+// exports.getAllParents = function (req, res) {
+//     "use strict";
+//
+//     var id = req.params.id;
+//
+//     var getGraphUrl = BASE_URL + "tp/gremlin?script=";
+//
+//     getGraphUrl = getGraphUrl + "g.V.has('name', '" + id + "')" +
+//         ".as('x').outE" +
+//         ".inV&rexster.returnKeys=[name]";
+//
+//     console.log('URL = ' + getGraphUrl);
+//
+//     request.get(getGraphUrl, function (err, rest_res, body) {
+//         if (!err) {
+//             var results = JSON.parse(body);
+//             var resultArray = results.results;
+//             if (resultArray !== undefined && resultArray.length !== 0) {
+//                 res.json(resultArray);
+//             } else {
+//                 res.json(EMPTY_ARRAY);
+//             }
+//         }
+//     });
+// };
 
 exports.getGeneNames = function (req, res) {
     "use strict";
