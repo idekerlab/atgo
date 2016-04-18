@@ -39,7 +39,8 @@
                     "labelLength": 20,
                     "unselectedColor": "rgba(100,100,100,0.9)",
                     "selectedColor": "rgba(70,130,180,0.9)",
-                    "queryNodeColor": "rgb(255,94,25)"
+                    "queryNodeColor": "rgb(255,94,25)",
+                    "rootNodeColor": "red"
                 }
             }
         }

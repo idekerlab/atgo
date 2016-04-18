@@ -23,6 +23,9 @@ define([
     var QUERY_NODE_COLOR = 'rgb(255,94,25)';
     var CHILD_NODE_COLOR = 'rgb(190,219,57)';
 
+    var ROOT_NODE_COLOR = 'red';
+    var ROOT_NODE_ID = '1';
+
     var EXTRA_EDGE_COLOR = 'rgba(235,127,0,0.3)';
 
     // Special edge types
@@ -347,9 +350,6 @@ define([
                 }
             });
 
-            console.log('VALID path:');
-            console.log(validPaths);
-
             _.each(validPaths, function (path) {
                 _.each(path, function (pathNode) {
                     sourceNodes[pathNode] = true;
@@ -424,6 +424,10 @@ define([
                     node.color = DIM_COLOR;
                     node.attr.grey = true;
                     node.forceLabel = false;
+                } else if(node.id === ROOT_NODE_ID) {
+                    node.color = ROOT_NODE_COLOR;
+                    node.attr.grey = false;
+                    node.forceLabel = true;
                 } else {
                     node.color = SELECTED_NODE_COLOR;
                     node.attr.grey = false;
