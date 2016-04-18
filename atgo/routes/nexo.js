@@ -85,7 +85,7 @@ GraphUtil.prototype = {
 
             var source = edge._outV;
             var target = edge._inV;
-            var score = edge.score;
+            var score = parseFloat(edge.score.toPrecision(4));
 
             var newEdge = {
                 data: {
@@ -104,30 +104,6 @@ GraphUtil.prototype = {
         }
         return graph;
     },
-
-    // graphGenerator: function (graphJson) {
-    //
-    //     // Cytoscape.js style graph object.
-    //     var graph = {
-    //         elements: {
-    //             nodes: [],
-    //             edges: []
-    //         }
-    //     };
-    //
-    //     var nodeIdArray = [];
-    //     var edgeIdArray = [];
-    //
-    //     for (var key in graphJson) {
-    //         var path = graphJson[key];
-    //         this.parsePathEntry(nodeIdArray, edgeIdArray, graph, path);
-    //     }
-    //
-    //     nodeIdArray = null;
-    //     edgeIdArray = null;
-    //
-    //     return graph;
-    // },
 
     edgeListGenerator: function (graphJson) {
 
@@ -716,11 +692,6 @@ exports.getPath = function (req, res) {
 
     var id = req.params.id;
 
-    //if (!validator.validate(id)) {
-    //    res.json(EMPTY_ARRAY);
-    //    return;
-    //}
-
     var ns = "";
     if (id.match(/S/)) {
         ns = "NEXO";
@@ -728,8 +699,6 @@ exports.getPath = function (req, res) {
         ns = id.split(":")[0];
     }
 
-    console.log("Name Space = " + ns);
-    console.log("ID = " + id);
     id = id.toLowerCase();
 
     var self = this;
@@ -770,7 +739,7 @@ exports.getPath = function (req, res) {
 
         // Get all TERMS connected FROM this term node
         var url = BASE_URL + "tp/gremlin?script=g.idx('Vertex')[[name: '" + id + "']]" +
-            ".outE.inV&rexster.returnKeys=[name]";
+            ".outE.filter{it.label == 'child_of'}.inV&rexster.returnKeys=[name]";
 
         console.log("Neighbour:");
         console.log(url);

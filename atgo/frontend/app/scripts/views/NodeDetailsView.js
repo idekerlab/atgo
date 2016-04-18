@@ -146,11 +146,11 @@ define([
                 var pubmedId = edge.publication;
                 var pubmedLink = self.replaceNonePubmedId(pubmedId);
                 var score = edge.score;
-                if(score === undefined) {
-                    score = '-';
-                } else {
-                    score = score.toFixed(3);
-                }
+                // if(score === undefined) {
+                //     score = '-';
+                // } else {
+                //     score = score.toFixed(3);
+                // }
                 var itr = edge.interaction;
 
                 summary += '<tr><td>' + score + '</td><td>'

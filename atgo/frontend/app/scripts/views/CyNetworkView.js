@@ -248,7 +248,7 @@ define([
                     })
                     .selector('edge')
                     .css({
-                        'width': 'mapData(score, 1, 4.5, 0.8, 5.0)',
+                        'width': 'mapData(score, 0, 5, 0.8, 5.5)',
                         'color': '#999999',
                         'line-color': '#666666',
                         'line-style': 'solid',
