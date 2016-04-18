@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="1110px" height="358px" viewBox="0 0 1110 358" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.7 (28169) - http://www.bohemiancoding.com/sketch -->
+    <title>legend-main</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="legend-main" transform="translate(0.000000, -97.000000)">
+            <path d="M102.4264,114.5736 C125.8579,138.0051 125.8579,175.9949 102.4264,199.4264 C78.99492,222.8579 41.00508,222.8579 17.57364,199.4264 C-5.85792,175.9949 -5.85792,138.0051 17.57364,114.5736 C41.00508,91.1421 78.99492,91.1421 102.4264,114.5736" id="Fill-1" fill="#FA000A"></path>
+            <path d="M330.5017,123.4983 C349.8328,142.8292 349.8328,174.1708 330.5017,193.5017 C311.1708,212.8328 279.8292,212.8328 260.4983,193.5017 C241.1672,174.1708 241.1672,142.8292 260.4983,123.4983 C279.8292,104.1672 311.1708,104.1672 330.5017,123.4983" id="Fill-3" fill="#1A8492"></path>
+            <path d="M542.3345,133.6655 C555.2219,146.5528 555.2219,167.4472 542.3345,180.3345 C529.4472,193.2219 508.5528,193.2219 495.6655,180.3345 C482.7781,167.4472 482.7781,146.5528 495.6655,133.6655 C508.5528,120.7781 529.4472,120.7781 542.3345,133.6655" id="Fill-4" fill="#1A8492"></path>
+            <path d="M983.3345,133.6655 C996.222,146.5528 996.222,167.4472 983.3345,180.3345 C970.4472,193.2219 949.5528,193.2219 936.6655,180.3345 C923.7781,167.4472 923.7781,146.5528 936.6655,133.6655 C949.5528,120.7781 970.4472,120.7781 983.3345,133.6655" id="Fill-5" fill="#FB4612"></path>
+            <path d="M734.3345,133.6655 C747.2219,146.5528 747.2219,167.4472 734.3345,180.3345 C721.4472,193.2219 700.5528,193.2219 687.6655,180.3345 C674.7781,167.4472 674.7781,146.5528 687.6655,133.6655 C700.5528,120.7781 721.4472,120.7781 734.3345,133.6655" id="Fill-6" fill="#B3D517"></path>
+            <path d="M680.3345,286.6655 C693.2219,299.5528 693.2219,320.4472 680.3345,333.3345 C667.4472,346.2219 646.5528,346.2219 633.6655,333.3345 C620.7781,320.4472 620.7781,299.5528 633.6655,286.6655 C646.5528,273.7781 667.4472,273.7781 680.3345,286.6655" id="Fill-7" fill="#B3D517"></path>
+            <path d="M614.3345,379.6655 C627.2219,392.5528 627.2219,413.4472 614.3345,426.3345 C601.4472,439.2219 580.5528,439.2219 567.6655,426.3345 C554.7781,413.4472 554.7781,392.5528 567.6655,379.6655 C580.5528,366.7781 601.4472,366.7781 614.3345,379.6655" id="Fill-8" fill="#B3D517"></path>
+            <text id="Root-Term" font-family="HelveticaNeue, Helvetica Neue" font-size="24" font-weight="normal" fill="#000000">
+                <tspan x="4.656" y="240.204162">Root </tspan>
+                <tspan x="62.88" y="240.204162" letter-spacing="-2.664">T</tspan>
+                <tspan x="71.328" y="240.204162">erm</tspan>
+            </text>
+            <path d="M927,157 L744,157" id="Stroke-9" stroke="#B3D617" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M952.1477,189.0571 C942.6863,210.4711 921.8513,238.8473 876,262 C816.7272,291.9298 734.8947,303.4124 689.917,307.6532" id="Stroke-10" stroke="#FB4711" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M951.6082,188.9207 C938.9709,226.0705 908.7471,288.1686 840,334 C766.2885,383.141 672.7293,397.2878 623.9594,401.358" id="Stroke-11" stroke="#FB4711" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M678,157 L552,157" id="Stroke-12" stroke="#1A8492" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M486.0007,157.22147 L344.9989,158.16779" id="Stroke-13" stroke="#1A8492" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="5,20"></path>
+            <path d="M246.001,158.18472 L119.9988,157.38216" id="Stroke-14" stroke="#1A8492" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path>
+            <text id="Path-to-Root" font-family="HelveticaNeue, Helvetica Neue" font-size="24" font-weight="normal" fill="#000000">
+                <tspan x="352.212" y="240.204162">Path to Root</tspan>
+            </text>
+            <text id="Parent-Term" font-family="HelveticaNeue, Helvetica Neue" font-size="24" font-weight="normal" fill="#000000">
+                <tspan x="637.036" y="231.204162">Pa</tspan>
+                <tspan x="665.476" y="231.204162" letter-spacing="-0.432">r</tspan>
+                <tspan x="672.604" y="231.204162">ent </tspan>
+                <tspan x="713.068" y="231.204162" letter-spacing="-2.664">T</tspan>
+                <tspan x="721.516" y="231.204162">erm</tspan>
+            </text>
+            <text id="Other-Parents" font-family="HelveticaNeue, Helvetica Neue" font-size="24" font-weight="normal" fill="#000000">
+                <tspan x="610.256" y="453.204162">Other Pa</tspan>
+                <tspan x="705.392" y="453.204162" letter-spacing="-0.432">r</tspan>
+                <tspan x="712.52" y="453.204162">ents</tspan>
+            </text>
+            <text id="Selected-Term" font-family="HelveticaNeue, Helvetica Neue" font-size="24" font-weight="normal" fill="#000000">
+                <tspan x="960.367" y="231.204162">Selected </tspan>
+                <tspan x="1061.263" y="231.204162" letter-spacing="-2.664">T</tspan>
+                <tspan x="1069.711" y="231.204162">erm</tspan>
+            </text>
+            <text id="Ontology-View-Legend" font-family="HelveticaNeue-Thin, Helvetica Neue" font-size="52" font-weight="300" fill="#4C4C4C">
+                <tspan x="48.0925" y="344.886201">On</tspan>
+                <tspan x="113.6125" y="344.886201" letter-spacing="-0.728">t</tspan>
+                <tspan x="125.6245" y="344.886201">ology </tspan>
+                <tspan x="255.6765" y="344.886201" letter-spacing="-0.936">V</tspan>
+                <tspan x="282.7165" y="344.886201">iew </tspan>
+                <tspan x="369.5045" y="344.886201" letter-spacing="-0.936">L</tspan>
+                <tspan x="393.6325" y="344.886201">egend</tspan>
+            </text>
+        </g>
+    </g>
+</svg>
