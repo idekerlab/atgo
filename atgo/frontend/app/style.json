@@ -2,6 +2,13 @@
     "raw_interactions": {
         "edge-types": [
             {
+                "key": "Co-citation",
+                "value": {
+                    "line-style": "solid",
+                    "line-color": "#EE0000"
+                }
+            },
+            {
                 "key": "Co-expression",
                 "value": {
                     "line-style": "solid",
@@ -23,10 +30,17 @@
                 }
             },
             {
-                "key": "Protein-protein interactions",
+                "key": "Protein-protein interactions (high-throughput)",
                 "value": {
                     "line-style": "solid",
                     "line-color": "#FFFFFF"
+                }
+            },
+            {
+                "key": "Protein-protein interactions (low-throughput)",
+                "value": {
+                    "line-style": "solid",
+                    "line-color": "#6F6F6F"
                 }
             },
             {

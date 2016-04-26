@@ -618,9 +618,6 @@ exports.getRawInteractions = function (req, res) {
                     geneArray = queryTerm["assigned_genes"];
                 }
 
-                console.log("GENES:==========");
-                console.log(geneArray);
-
                 if(geneArray === undefined || geneArray.length === 0) {
                     res.json(EMPTY_CYNETWORK);
                     return;

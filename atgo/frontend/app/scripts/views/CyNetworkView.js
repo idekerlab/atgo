@@ -248,7 +248,7 @@ define([
                     })
                     .selector('edge')
                     .css({
-                        'width': 'mapData(score, 0, 5, 0.8, 5.5)',
+                        'width': 'mapData(score, 0, 1, 0.5, 4)',
                         'color': '#999999',
                         'line-color': '#666666',
                         'line-style': 'solid',
@@ -263,6 +263,11 @@ define([
                         'font-size': '8px',
                         'font-weight': 100,
                         'opacity': 1
+                    })
+                    .selector('edge[interaction = "Co-citation"]')
+                    .css({
+                        'line-style': 'solid',
+                        'line-color': '#EE0000'
                     })
                     .selector('edge[interaction = "Co-expression"]')
                     .css({
@@ -279,10 +284,15 @@ define([
                         'line-style': 'solid',
                         'line-color': '#fdc086'
                     })
-                    .selector('edge[interaction = "Protein-protein interactions"]')
+                    .selector('edge[interaction = "Protein-protein interactions (high-throughput)"]')
                     .css({
                         'line-style': 'solid',
                         'line-color': '#FFFFFF'
+                    })
+                    .selector('edge[interaction = "Protein-protein interactions (low-throughput)"]')
+                    .css({
+                        'line-style': 'solid',
+                        'line-color': '#6F6F6F'
                     })
                     .selector('edge[interaction = "Domain co-occurrence"]')
                     .css({
