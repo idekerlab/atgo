@@ -60,7 +60,7 @@ def getRawInteractionsForGenes() {
 	
 	while(geneItr.hasNext()) {
 		def geneV = geneItr.next();
-		def edges = geneV.outE().has("type", "raw_interaction");
+		def edges = geneV.bothE().has("type", "raw_interaction");
 		
 		def pit = edges.iterator();
 		while(pit.hasNext()) {
