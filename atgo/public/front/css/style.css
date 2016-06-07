@@ -327,6 +327,13 @@ h4 {
 * For top page
 *
 ******************************************************/
+body {
+    background-image: url('../images/top2.png');
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
 .container {
     background-size: 100%;
     font-family: Roboto;
@@ -336,20 +343,18 @@ h4 {
 }
 
 .topPage {
-    background-image: url('../images/top2.png');
-    height: 600px;
 }
 
 .topPage h1 {
     margin-top: 80px;
     font-weight: 100;
-    font-size: 160px;
+    font-size: 180px;
     color: rgba(44,44,44,0.9);
 
 }
 
 .topPage p {
-    margin-top: 70px;
+    margin-bottom: 70px;
     margin-left: 30px;
 
     font-size: 24px;
@@ -360,15 +365,15 @@ h4 {
     border-radius: 0;
     background-color: rgb(255,94,25);
     color: #f1f1f1;
-    width: 150px;
+    width: 100%;
     text-align: center;
     padding: 20px;
-    font-size: 14px;
+    font-size: 24px;
     font-weight: 300;
 }
 
 #about {
-   margin-top: 380px;
+   margin-top: 80px;
    background-color: #4387E9;
 }
 
@@ -389,10 +394,18 @@ h4 {
 }
 
 .section {
+    font-size: 18px;
     margin-top: 60px;
+    margin-left: 30px;
+    margin-right: 30px;
 }
 
 footer {
+    position:fixed;
+    left:0px;
+    bottom:1em;
+    width:100%;
+
     margin-top: 20px;
     z-index: 200;
     color: #343434;
