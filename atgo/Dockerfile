@@ -30,6 +30,10 @@ RUN cp -r ./dist ../public/
 WORKDIR /app
 RUN npm install
 
+# Step 4: Add download data
+ADD ./download/AIM_H_SAPIENS.tar.gz /app/public/data/
+ADD ./download/AIM_S_CEREVISIAE.tar.gz /app/public/data/
+
 EXPOSE 3000
 
 CMD ["node", "app.js"]
