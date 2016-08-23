@@ -588,3 +588,131 @@ footer {
     }
 
 }
+
+
+.flex-container {
+    flex-direction: column;
+    height: 100%;
+
+    display: -webkit-flex;
+    display:         flex;
+}
+.flex-item {
+   height: 80px;
+    -webkit-align-items: flex-start;
+    align-items: flex-start;
+    -webkit-justify-content: center;
+    justify-content: center;
+}
+
+.flex-top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: -webkit-flex;
+    display:         flex;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+}
+
+.flex-title {
+    height: 35em;
+    width: 100%;
+    background-color: rgba(3,120,193, 0.9);
+    display: -webkit-flex;
+    display:         flex;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+}
+
+.flex-title-v {
+    font-size: 3em;
+    margin: 0;
+    font-weight: 300;
+    color: white;
+    text-align: end;
+    width: 100%;
+}
+.flex-title h1 {
+    font-size: 17em;
+    margin: 0;
+    font-weight: 100;
+    font-family: Roboto, sans-serif;
+    color: white;
+}
+
+.flex-title-sub {
+    -webkit-align-items: flex-start;
+    align-items: flex-start;
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-size: 1.4em;
+    color: #efefef;
+
+}
+
+.flex-item2 {
+    display: -webkit-flex;
+    display:         flex;
+    flex-direction: column;
+    height: 100%;
+    margin: 1em;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+}
+
+.flex-button {
+    display: -webkit-flex;
+    display:         flex;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    height: 4em;
+    width: 20em;
+    margin: 1em;
+    background-color: #0b97c4;
+    font-size: 1.5em;
+}
+
+.flex-item2 a {
+    font-weight: 300;
+    color: white;
+    text-decoration: none;
+}
+
+.flex-button:hover {
+
+    font-weight: 700;
+}
+
+.main-button {
+    background-color: darkorange;
+}
+
+.sub-button {
+    background-color: #07B1DA;
+}
+
+.flex-footer {
+    display: -webkit-flex;
+    display:         flex;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    height: 2em;
+    width: 100%;
+
+}
