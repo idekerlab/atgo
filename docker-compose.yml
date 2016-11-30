@@ -1,9 +1,11 @@
 rexster:
   build: rexster
+  restart: always
   ports:
     - "8182:8182"
 atgo:
   build: atgo
+  restart: always
   links:
     - rexster
   ports:
