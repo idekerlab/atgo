@@ -4,7 +4,7 @@ rexster:
   ports:
     - "8182:8182"
 atgo:
-  build: atgo
+  image: idekerlab/atgo:1.0.0
   restart: always
   links:
     - rexster
